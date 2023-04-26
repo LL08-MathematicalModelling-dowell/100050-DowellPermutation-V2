@@ -1,0 +1,142 @@
+.permutationInputs {
+  width: 750px;
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #F8F9FA;
+  border: 1px solid #D9DADB;
+  box-shadow: 0 0 10pt 5pt #ECECEC;
+  border-radius: 8px;
+}
+
+.permutationInputs > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.permutationInputs > h1 {
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 600;
+  font-size: 30px;
+  margin-top: 60px;
+  color: #0D6EFD; 
+}
+
+.permutationInputs > form > label {
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+
+.permutationInputs > form > input {
+  width: 600px;
+  height: 35px;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+}
+
+#nInput{
+  border: 1px solid red;  
+}
+
+#rInput {
+  border: 1px solid red;
+}
+
+.permutationInputs > form > input:focus{
+  outline: none !important;
+  box-shadow: 0 0 10pt 5pt #BDD7FA;
+  border: 1px solid #BDD7FA;
+}
+
+.permutationInputs > form > span {
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  color: #D63384;
+}
+
+.permutationButtons {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resetButton {
+  width: 70px;
+  height: 40px;
+  background-color: #5C636A;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.calculateButton {
+  width: 100px;
+  height: 40px;
+  background-color: #0B5ED7;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.permutationResults {
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.permutationResults > button {
+  width: 600px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  background-color: #0B5ED7;
+  cursor: pointer;
+  color: white;
+}
+
+#formButtons {
+  display: none;
+}
+
+#formResults {
+  display: flex;
+}
+
+@media only screen and (max-width: 850px){
+  .permutationInputs {
+    width: 500px;
+    height: 450px;
+  }
+
+  .permutationInputs > form > input {
+    width: 350px;
+  }
+
+  .permutationInputs > h1 {
+    margin-top: 20px;
+  }
+
+  .permutationInputs > form > label {
+    margin-top: 15px;
+  }
+
+  .permutationResults > button {
+    width: 350px;
+  }
+}

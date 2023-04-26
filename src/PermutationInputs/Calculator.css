@@ -1,0 +1,110 @@
+.calculator {
+  width: 750px;
+  height: 100%;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #F8F9FA;
+  border: 1px solid #D9DADB;
+  box-shadow: 0 0 10pt 5pt #ECECEC;
+  border-radius: 8px;
+}
+
+.permutations {
+  margin-left: 80px;
+  margin-top: 50px;
+}
+
+.permutations > p > span {
+  font-weight: bold;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.boxes{
+  margin-left: 80px;
+  margin-right: 80px;
+  display: flex;
+  flex-wrap: wrap; 
+}
+
+.nSet {
+  margin-left: 80px;
+  margin-bottom: 20px;
+}
+
+.nSet > h3 {
+  font-weight: 400;
+}
+
+.setnBoxes {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.rSet {
+  margin-left: 80px;
+}
+
+.rSet > h3 {
+  font-weight: 400;
+}
+
+.setrBoxes {
+  display: flex;
+}
+
+@media only screen and (max-width: 850px){
+  .calculator{
+    width: 500px;
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingSpinner{
+  width: 50px;
+  height: 50px;
+  border: 10px solid #f3f3f3; /* Light grey */
+  border-top: 10px solid #383636; /* Black */
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
+}
+
+.savedDiv {
+  display: flex;
+  align-items: center;
+}
+
+.savedDiv > p {
+  margin-right: 88px;
+}
+
+.final {
+  display: flex;
+  align-items: center;
+}
+
+.final > p {
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 700px){
+  .calculator{
+    width: 470px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
