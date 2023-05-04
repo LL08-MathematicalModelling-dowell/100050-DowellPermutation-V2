@@ -1,13 +1,11 @@
 # Dowell Permutation API Documentation
 ## Calling Dowell Permutation API
-
+### URL
 ```py
-import json
-import requests
 url = 'https://100050.pythonanywhere.com/permutationapi/api/'
 ```
 
-### Use this payload to find permutation
+### ```1. Use this payload to find permutation ```
 #### Request
 ```py
 {
@@ -37,7 +35,7 @@ url = 'https://100050.pythonanywhere.com/permutationapi/api/'
   "inserted_id": "63a2b47c2be81449d3a30d9a"
 }
 ```
-### Use this payload to save permutation
+### ```2. Use this payload to save permutation ```
 #### Request
 ```py
 {
@@ -55,7 +53,7 @@ url = 'https://100050.pythonanywhere.com/permutationapi/api/'
   "message": "Selected permutation ['A', 'B'] is saved successfully."
 }
 ```
-### Use this payload to show permutation
+### ```3. Use this payload to show permutation ```
 #### Request
 ```py
 {
@@ -75,10 +73,4 @@ url = 'https://100050.pythonanywhere.com/permutationapi/api/'
   ],
   "inserted_id": "63a2b47c2be81449d3a30d9a"
 }
-```
-```py
-headers = {'content-type': 'application/json'}
-response = requests.post(url, json =data,headers=headers)
-output_data=json.loads(response.text)
-print(output_data)
 ```
