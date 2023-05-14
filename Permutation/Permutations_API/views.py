@@ -85,6 +85,7 @@ def permutationsFunction(data):
                     '_id':inserted_id,
                 },
             })
+            print("---dowellconnection output",dowellConnectionOutput)
             if(dowellConnectionOutput['isSuccess'] == True):
                 permutationsVariables = dowellConnectionOutput['data'][0]['permutationsVariables']
                 n = dowellConnectionOutput['data'][0]['n']
