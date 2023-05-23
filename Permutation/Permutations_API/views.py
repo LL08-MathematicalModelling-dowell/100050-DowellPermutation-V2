@@ -37,18 +37,33 @@ def dowellConnection(data):
     command = data['command']
     field = data['field']
     update_field = data['update_field']
-    payload = json.dumps({
-        "cluster": "Documents",
-        "database": "Documentation",
-        "collection": "permutation",
-        "document": "permutation",
-        "team_member_ID": "100084007",
-        "function_ID": "ABCDE",
-        "command": command,
-        "field": field,
-        "update_field": update_field,
-        "platform": "bangalore"
+    payload = {}
+    if data["custom_collection"] != {}:
+        payload = json.dumps({
+            "cluster": data["custom_collection"]["cluster"],
+            "database": data["custom_collection"]["database"],
+            "collection": data["custom_collection"]["collection"],
+            "document": data["custom_collection"]["document"],
+            "team_member_ID": data["custom_collection"]["team_member_ID"],
+            "function_ID": data["custom_collection"]["function_ID"],
+            "command": command,
+            "field": field,
+            "update_field": update_field,
+            "platform": "bangalore"
         })
+    else:
+        payload = json.dumps({
+            "cluster": "dowellfunctions",
+            "database": "dowellfunctions",
+            "collection": "permutations",
+            "document": "permutations",
+            "team_member_ID": "1195001",
+            "function_ID": "ABCDE",
+            "command": command,
+            "field": field,
+            "update_field": update_field,
+            "platform": "bangalore"
+            })
     headers = {
         'Content-Type': 'application/json'
     }
@@ -59,13 +74,16 @@ def dowellConnection(data):
 def permutationsFunction(data):
     outputData = {}
     inserted_id = data['inserted_id']
+    custom_collection = {}
+    if "custom_collection" in data.keys():
+        custom_collection = data['custom_collection']
     if(data['command']=='findPermutation'):
         nextVariable = data['nextVariable']
         if(inserted_id == None):
             n = data['n']
             r = data['r']
             outputData = {
-                'eventId':get_event_id(),
+                'eventId': get_event_id(),
                 'n':n,
                 'r':r,
                 'numberOfPermutations' : int(factorial(n)/factorial(n-r)),
@@ -75,6 +93,7 @@ def permutationsFunction(data):
                 'command':'insert',
                 'field':outputData,
                 'update_field':None,
+                'custom_collection':custom_collection,
             })
             outputData['inserted_id'] = callDowellConnection['inserted_id']
         else:
@@ -84,8 +103,8 @@ def permutationsFunction(data):
                 'field':{
                     '_id':inserted_id,
                 },
+                'custom_collection':custom_collection,
             })
-            print("---dowellconnection output",dowellConnectionOutput)
             if(dowellConnectionOutput['isSuccess'] == True):
                 permutationsVariables = dowellConnectionOutput['data'][0]['permutationsVariables']
                 n = dowellConnectionOutput['data'][0]['n']
@@ -116,7 +135,8 @@ def permutationsFunction(data):
             },
             'update_field':{
                 'permutationsVariables':data['selectedPermutation'],
-            }
+            },
+            'custom_collection':custom_collection,
         })
         outputData['message'] = f"Selected permutation {data['selectedPermutation']} is saved successfully."
     elif(data['command'] == 'showPermutation'):
@@ -127,6 +147,7 @@ def permutationsFunction(data):
             },
             'update_field':{
             },
+            'custom_collection':custom_collection,
         })
         outputData = {
             'n' : dowellConnectionOutput['data'][0]['n'],
