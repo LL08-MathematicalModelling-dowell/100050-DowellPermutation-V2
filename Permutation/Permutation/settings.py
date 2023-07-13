@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Permutations_API',
     'corsheaders',
+    'V2',
 ]
 
 MIDDLEWARE = [

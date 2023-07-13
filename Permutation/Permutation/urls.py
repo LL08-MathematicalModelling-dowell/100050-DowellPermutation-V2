@@ -4,4 +4,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('permutationapi/', include('Permutations_API.urls')),
+    path('permutation/V2/', include('V2.urls')),
 ]
