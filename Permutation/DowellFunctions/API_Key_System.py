@@ -1,10 +1,8 @@
 import requests
-
 def processApikey(api_key):
-    url = 'https://100105.pythonanywhere.com/api/v1/process-api-key/'
+    url = f'https://100105.pythonanywhere.com/api/v3/process-services/?type=api_service&api_key={api_key}'
     payload = {
-        "api_key" : api_key,
-        "api_service_id" : "DOWELL100011"
+        "service_id": "DOWELL10008"
     }
     response = requests.post(url, json=payload)
     return response.text
