@@ -12,13 +12,13 @@ def permutationsAPI(request, command, api_key):
             validate_api_count = processApikey(api_key)
             data_count = json.loads(validate_api_count)
             if data_count['success'] :
-                if data_count['count'] >= 0 :
+                if data_count['total_credits'] >= 0 :
                     return JsonResponse(findPermutation(data))
                 else:
                     return JsonResponse({
                         "success": False,
                         "message": data_count['message'],
-                        "credits": data_count['count']
+                        "credits": data_count['total_credits']
                     })
             else:
                 return JsonResponse({
