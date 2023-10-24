@@ -1,5 +1,6 @@
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse, HttpResponse
+from DowellFunctions.Send_Email import send_email
 import json
 import requests
 from math import factorial
@@ -88,6 +89,7 @@ def permutationsFunction(data):
                 'r':r,
                 'numberOfPermutations' : int(factorial(n)/factorial(n-r)),
                 'permutationsVariables' : [nextVariable],
+                'permutationSteps': []
             }
             callDowellConnection = dowellConnection({
                 'command':'insert',
@@ -124,21 +126,41 @@ def permutationsFunction(data):
                     }
                     outputData['inserted_id'] = inserted_id
                 else:
-                    outputData['message'] = f"{r} items are already selected."
+                    if("email" in data):
+                        try:
+                            outputData['message'] = f"{r} items are already selected. Email Sent Successfully."
+                        except:
+                            outputData['message'] = "Something Went Wrong."
+                    else:
+                        outputData['message'] = "Email not provided."
             else:
                 outputData['message'] = f"Provided inserted_id : {inserted_id} is not present in the database."
     elif(data['command'] == 'savePermutation'):
+        dowellConnectionOutput = dowellConnection({
+            'command':'fetch',
+            'field':{
+                '_id':inserted_id,
+            },
+            'update_field':{
+            },
+            'custom_collection':custom_collection,
+        })
+        permutationSteps = dowellConnectionOutput['data'][0]['permutationSteps']
+        permutationSteps.append(data['selectedPermutation'])
+
         dowellConnection({
             'command':'update',
             'field':{
                 '_id':inserted_id,
             },
             'update_field':{
+                'permutationSteps': permutationSteps,
                 'permutationsVariables':data['selectedPermutation'],
             },
             'custom_collection':custom_collection,
         })
         outputData['message'] = f"Selected permutation {data['selectedPermutation']} is saved successfully."
+
     elif(data['command'] == 'showPermutation'):
         dowellConnectionOutput = dowellConnection({
             'command':'fetch',
@@ -154,11 +176,17 @@ def permutationsFunction(data):
             'r' : dowellConnectionOutput['data'][0]['r'],
             'numberOfPermutations' : dowellConnectionOutput['data'][0]['numberOfPermutations'],
             'permutationsVariables' : dowellConnectionOutput['data'][0]['permutationsVariables'],
+            'permutationSteps' : dowellConnectionOutput['data'][0]['permutationSteps'],
             'inserted_id' : dowellConnectionOutput['data'][0]['_id'],
         }
     else:
         outputData['message'] = f"{data['command']} is not a valid command, use command from findPermutation, savePermutation, showPermutation only."
     return outputData
+
+
+@csrf_exempt
+def send_email(request):
+    pass
 
 @csrf_exempt
 def permutationsAPI(request):
