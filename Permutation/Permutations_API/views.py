@@ -128,6 +128,48 @@ def permutationsFunction(data):
                 else:
                     if("email" in data):
                         try:
+                            email_content = f'''
+                            <!DOCTYPE html>
+                            <html>
+                            <head>
+                            </head>
+                            <body>
+                                <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px; font-family: Arial, sans-serif;">
+                                    <h1 style="text-align: center;">Permutation Calculator Report</h1>
+                                    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                                        <tr>
+                                            <th style="border: 1px solid #ccc; padding: 10px; text-align: left;">Number of Items (n)</th>
+                                            <td style="border: 1px solid #ccc; padding: 10px; text-align: left;">{dowellConnectionOutput['data'][0]['n']}</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="border: 1px solid #ccc; padding: 10px; text-align: left;">Items to be Selected (r)</th>
+                                            <td style="border: 1px solid #ccc; padding: 10px; text-align: left;">{dowellConnectionOutput['data'][0]['r']}</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="border: 1px solid #ccc; padding: 10px; text-align: left;">Total Possible Permutations</th>
+                                            <td style="border: 1px solid #ccc; padding: 10px; text-align: left;">{dowellConnectionOutput['data'][0]['numberOfPermutations']}</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="border: 1px solid #ccc; padding: 10px; text-align: left;">Permutation Steps</th>
+                                            <td style="border: 1px solid #ccc; padding: 10px; text-align: left;">
+                                                <ol>
+                                                    {"".join([f"<li>{step}</li>" for step in dowellConnectionOutput['data'][0]['permutationSteps']])}
+                                                </ol>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="border: 1px solid #ccc; padding: 10px; text-align: left;">Final Permutation Variables</th>
+                                            <td style="border: 1px solid #ccc; padding: 10px; text-align: left;">{", ".join(dowellConnectionOutput['data'][0]['permutationsVariables'])}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </body>
+                            </html>
+                            '''
+                            toname = ""
+                            toemail = data["email"]
+                            subject = "Permutation Calculator Report"
+                            send_email(toname, toemail, subject, email_content)
                             outputData['message'] = f"{r} items are already selected. Email Sent Successfully."
                         except:
                             outputData['message'] = "Something Went Wrong."
@@ -182,11 +224,6 @@ def permutationsFunction(data):
     else:
         outputData['message'] = f"{data['command']} is not a valid command, use command from findPermutation, savePermutation, showPermutation only."
     return outputData
-
-
-@csrf_exempt
-def send_email(request):
-    pass
 
 @csrf_exempt
 def permutationsAPI(request):
