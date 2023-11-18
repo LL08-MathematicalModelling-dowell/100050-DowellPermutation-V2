@@ -1,0 +1,21 @@
+.setnBox {
+  width: 50px;
+  height: 35px;
+  background-color: #DEDDDD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 2px;
+  border-radius: 2px;
+  border-bottom: 2px solid black;
+  border-left: 1px solid #444;
+  border-bottom-color: #555;
+  box-shadow: 0 0 0 0.05em black;
+  font-size: 14px;
+}
+
+#active {
+  opacity: 0.1;
+  pointer-events: none;
+}

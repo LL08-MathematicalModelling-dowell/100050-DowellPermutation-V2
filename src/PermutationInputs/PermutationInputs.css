@@ -1,0 +1,157 @@
+.permutationInputs {
+  width: 750px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f8f9fa;
+  border: 1px solid #d9dadb;
+  box-shadow: 0 0 5pt 0pt #ececec;
+  border-radius: 8px;
+}
+
+.permutationInputs > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 53px;
+  padding-right: 30px;
+}
+
+.permutationInputs > h1 {
+  text-align: center;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 700;
+  font-size: 40px;
+  margin-top: 60px;
+  color: #005732;
+}
+
+.permutationInputs > form > label {
+  margin-bottom: 10px;
+  margin-top: 50px;
+  font-size: 16px;
+}
+
+.permutationInputs > form > input {
+  width: 600px;
+  /* height: 35px; */
+  padding: 12px 16px;
+  border: 1px solid black !important;
+  border-radius: 8px;
+}
+
+#nInput {
+  border: 1px solid red;
+}
+
+#rInput {
+  border: 1px solid red;
+}
+
+.permutationInputs > form > input:focus {
+  outline: none !important;
+}
+
+.permutationInputs > form > span {
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: #d63384;
+  margin-top: 3px;
+  margin-left: 4px;
+}
+
+.permutationButtons {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resetButton {
+  width: 70px;
+  height: 40px;
+  background-color: #d6bb41;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.calculateButton {
+  width: 100px;
+  height: 40px;
+  background-color: #005732;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.permutationResults {
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.permutationResults > p {
+  font-size: 20px !important;
+  margin-top: 70px;
+}
+
+.amount {
+  font-size: 25px !important;
+  font-weight: 700;
+  color: #005732;
+}
+
+.permutationResults > button {
+  width: 300px;
+  height: 50px;
+  border: none;
+  border-radius: 4px;
+  background-color: #005732;
+  cursor: pointer;
+  color: white;
+}
+
+#formButtons {
+  display: none;
+}
+
+#formResults {
+  display: flex;
+}
+
+@media only screen and (max-width: 850px) {
+  .permutationInputs {
+    width: 500px;
+    height: 450px;
+  }
+
+  .permutationInputs > form > input {
+    width: 350px;
+  }
+
+  .permutationInputs > h1 {
+    margin-top: 20px;
+  }
+
+  .permutationInputs > form > label {
+    margin-top: 15px;
+  }
+
+  .permutationResults > button {
+    width: 350px;
+  }
+}
