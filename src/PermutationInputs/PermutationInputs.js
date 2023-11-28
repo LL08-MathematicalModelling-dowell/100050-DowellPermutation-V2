@@ -60,7 +60,7 @@ function PermutationInputs() {
 
   return (
     <div className='permutationInputs'>
-      <h1>Calculate Combinations and Permutations</h1>
+      <h1>DoWell Permutations Calculator</h1>
       <form>
         <label>Total amount in a set(n)</label>
         <input type='number' id={nerror ? 'nInput':''} value={n} onChange={(e)=>setN(e.target.value)} max="50"/>
