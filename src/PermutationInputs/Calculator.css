@@ -13,8 +13,15 @@
 }
 
 .permutations {
-  margin-left: 80px;
-  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+}
+
+.logo {
+  border-bottom: 1px solid lightgray;
+  padding: 30px 253px;
 }
 
 .permutations > p > span {
