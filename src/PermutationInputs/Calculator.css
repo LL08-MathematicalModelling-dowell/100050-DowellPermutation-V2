@@ -7,7 +7,7 @@
   margin-right: auto;
   background-color: #f8f9fa;
   border: 1px solid #d9dadb;
-  box-shadow: 0 0 5pt 0pt #ececec;
+  box-shadow: 0 0 20px #00000080;
   border-radius: 8px;
   padding-bottom: 70px;
 }
@@ -21,7 +21,7 @@
 
 .logo {
   border-bottom: 1px solid lightgray;
-  padding: 30px 253px;
+  padding: 30px 210px;
 }
 
 .permutations > p > span {

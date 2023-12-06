@@ -81,6 +81,7 @@ function PermutationInputs() {
           value={n}
           onChange={(e) => setN(e.target.value)}
           max="50"
+          placeholder="Enter amount in a set(n)"
         />
         <span>Hint: Max limit is 50</span>
         <label>Total amount in each subset(r)</label>
@@ -90,6 +91,7 @@ function PermutationInputs() {
           value={r}
           onChange={(e) => setR(e.target.value)}
           max="50"
+          placeholder="Enter amount in each subset(r)"
         />
         <div
           className="permutationButtons"

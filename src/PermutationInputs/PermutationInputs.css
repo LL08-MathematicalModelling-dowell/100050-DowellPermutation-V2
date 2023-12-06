@@ -6,8 +6,8 @@
   margin-right: auto;
   background-color: #f8f9fa;
   border: 1px solid #d9dadb;
-  box-shadow: 0 0 5pt 0pt #ececec;
-  border-radius: 8px;
+  box-shadow: 0 0 20px #00000080;
+  border-radius: 18px;
 }
 
 .permutationInputs > form {
@@ -24,15 +24,15 @@
   padding: 30px 0;
 }
 .heading {
-  border-top: 1px solid gray;
+  /* border-top: 1px solid gray; */
   text-align: center;
   max-width: 550px;
   margin-left: auto;
   margin-right: auto;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 40px;
   padding-top: 30px;
-  color: #005732;
+  color: #005734;
 }
 
 .permutationInputs > form > label {
@@ -44,8 +44,8 @@
 .permutationInputs > form > input {
   width: 600px;
   /* height: 35px; */
-  padding: 12px 16px;
-  border: 1px solid black !important;
+  padding: 15px 16px;
+  border: 1px solid rgb(218, 218, 218) !important;
   border-radius: 8px;
 }
 
